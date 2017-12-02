@@ -24,6 +24,7 @@ settings.configure(
     INSTALLED_APPS=(
         'django.contrib.staticfiles',
         'sitebuilder',
+        'compressor'
     ),
     TEMPLATES=(
         {
@@ -38,7 +39,7 @@ settings.configure(
     STATICFILES_FINDERS=(
         'django.contrib.staticfiles.finders.FileSystemFinder',
         'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-        #'compressor.finders.CompressorFinder',
+        'compressor.finders.CompressorFinder',
     ),
     STATIC_URL='/static/',
     # page dir
@@ -46,7 +47,9 @@ settings.configure(
     # output root dir
     SITE_OUTPUT_DIRECTORY=os.path.join(BASE_DIR, '_build'),
     # output static dir
-    STATIC_ROOT=os.path.join(BASE_DIR, '_build', 'static')
+    STATIC_ROOT=os.path.join(BASE_DIR, '_build', 'static'),
+    # hash static file name
+    # STATICFILES_STORAGE='django.contrib.staticfiles.storage.CachedStaticFilesStorage',
 )
 
 if __name__ == "__main__":
